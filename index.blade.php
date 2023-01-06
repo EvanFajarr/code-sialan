@@ -1,21 +1,73 @@
-@extends('template.hometmp')
-@section('konten')  
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">  
-<div class="row">
-  @foreach ($data as $item)
-  <div class="col-sm-6">
-      <div class="card shadow-lg p-3 mb-5 bg-body rounded border-dark mb-3">
-        <div class="card-body text-center">
-          <h3 class="card-title">{{ $item->nama }}</h3>
-          <p class="card-text"> {{ $item->type }} | {{ $item->harga }}</p>
-          <h5 class="card-text text-succes"> {{ $item->status }}</h5>
+@extends('template.template')
+@section('konten')    
+@include('pesan.pesan')
+ 
+<div class="container text-center">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="mb-3 row">
+            <label for="tanggal" class="col-sm-2 col-form-label">Hari</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name='tanggal' id="tanggal" value="{{ date('l/d/m/y') }} ">
+                
+            </div>
         </div>
+
+            <div class="mb-3 row">
+                <label for="no_meja" class="col-sm-2 col-form-label">No Meja</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name='no_meja' id="no_meja">
+                </div>
+            </div>
+
+           <a href='/' class="btn btn-outline-primary">ss</a>
+
+      </div>
+    
+        <div class="col-sm-6">
+            <div class="mb-3 row">
+                <label for="total" class="col-sm-2 col-form-label">Total</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name='total' id="total">
+                </div>
+            </div>
+
+          
+                <div class="mb-3 row">
+                    <label for="bayar" class="col-sm-2 col-form-label">Bayar</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name='bayar' id="bayar">
+                    </div>
+                </div>
+
+               
+                    <div class="mb-3 row">
+                        <label for="kembali" class="col-sm-2 col-form-label">Kembali</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name='kembali' id="kembali">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="status" class="col-sm-2 col-form-label">Status pesanan</label>
+                        <div class="col-sm-10">
+                            <select class="form-select form-select-lg mb-3" name='status'  id="status" aria-label=".form-select-lg example">
+                                <option >0</option>
+                                <option >1</option>
+                            </select>
+                        </div>
+
+                            <div class="mb-3 row">
+                                <label for="status_pesanan" class="col-sm-2 col-form-label">Status pesanan</label>
+                                <div class="col-sm-10">
+                                    <select class="form-select form-select-lg mb-3" name='status_pesanan'  id="status_pesanan" aria-label=".form-select-lg example">
+                                        <option >diantar</option>
+                                        <option >diproses</option>
+                                        <option >tersaji</option>
+                                        <option >takeaway</option>
+                                    </select>
+                                </div>
       </div>
     </div>
-    <style>
-      .card {
-          margin-bottom:30px;
-      }
-  </style>
-  @endforeach
+
 @endsection
